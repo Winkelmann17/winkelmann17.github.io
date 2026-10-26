@@ -1,0 +1,2 @@
+# Winkelware Github Pages
+This is the repo for Winkelware's Github pages site. This repo hosts an HTML site and connects clients to Winkelware's articles and projects. There is no set update schedule, updated when desired by Winkelware.
