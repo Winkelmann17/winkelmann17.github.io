@@ -1,1 +1,116 @@
-WORK IN PROGRESS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkelware | Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- Making the logo smaller for not home page -->
+        <style>
+            .logo
+            {
+                width: 150px;
+                height: 150px;
+            }
+        </style>
+
+        <header class="header">
+            <a href="index.html" class="logo" aria-label="Home">
+                <img src="../rsrc/pfp.jpg">
+            </a>
+
+            <div class="identity">
+                <div class="eyebrow">The Reclamation... has already begun.</div>
+                <h1>JPEG Steganography using SVD and Adaptive QIM</h1>
+                <p class="subtitle">
+                    Winkelware - Published on October 25, 2026
+                </p>
+            </div>
+        </header>
+
+        <nav class="navlinks" aria-label="navlinks">
+            <a class="navlink" href="..">Home</a>
+            <a class="navlink" href="../Articles/index.html">Articles</a>
+            <a class="navlink" href="../Projects/index.html">Projects</a>
+            <a class="navlink"
+               href="https://github.com/Winkelmann17"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub ↗
+            </a>
+        </nav>
+        
+        <section class="section">
+            <div class="section-heading">
+                <h2>About the Steganography Project</h2>
+            </div>
+
+            <div>
+                <p>
+                    The full project with all code, readme, and report can be found here: <a href="https://github.com/Winkelmann17/SVDAdaptiveQim-StegoProj"><u>SVDAdaptiveQim-StegoProj</u></a>
+                </p>
+                <p>
+                    Throughout the course of my Master's studies, I took a class dedicated to Steganography and the various forms that it can take.
+                    Lots of time was dedicated to image steganography, specifically JPEGs. 
+                    The popular F5 algorithm for stegging JPEG images was discussed at length, so when the time came to begin the semester project, JPEG steganography algorithms were fresh on my mind.
+                    The deliverables for the semester project were a working implementation of an academically proposed stego algorithm and a report detailing its effectiveness.
+                    <figure class="right-image">
+                        <img src="../rsrc/stegoex.jpg">
+                        <figcaption>Example grayscale image used to test stego algorithm effects</figcaption>
+                    </figure>
+                </p>
+                <p>
+                    For this project I created a Python implementation of of Jing Liu et. al's work "Robust JPEG Image Steganography Using Wavelet Domain SVD and Adaptive QIM." 
+                    The aim of their algorithm was to produce a robust steganography algorithm that can persist through further JPEG compression and distortion. 
+                    Robustness was the primary goal, not necessarily perfect extraction.
+                    The main, general concept of the algorithm revolves around performing mathematical transforms and matrix math to isolate certain values that can hold a bit parity. 
+                    This parity can be rediscovered (to a reasonable extent anyway) through the same operations at extraction. 
+                    These values are expected to reasonably hold their value/parity after further compression.
+                </p>
+                <p>
+                    The implementation that I created is not <i>exactly</i> 1-to-1 with the creator's algorithm as defined in their work. 
+                    Time constraints of the semester and the complexity of programming certain protions led to me having to cut some features the authors outlined. 
+                    I have linked the detailed analysis and comparison report of my implementation to this page, which can be viewed below.
+                </p>
+                <p>
+                    I <b>do not</b> own any of the images used for testing, nor do I claim that they are mine at any point. 
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Suggested Content Cards -->
+        <section class="section">
+            <div class="section-heading">
+                <h2>Newest Content and Creator Highlights</h2>
+            </div>
+
+            <div class="linkcard-container">
+                <!--♠♣♥♦-->
+                <a class="linkcard" href="../Projects/SVDAdaptiveQim.html">
+                    <h3>★ SVDAdaptiveQim Stego Project</h3>
+                    <p>
+                        A Python implementation and analysis of a steganography algorithm for JPEG images.
+                    </p>
+                    <span class="linkcard-visitmsg">
+                        View project →
+                    </span>
+                </a>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>Published by Winkelmann17 via Github Pages · 2026</p>
+        </footer>
+
+    </main>
+</body>
+</html>
+
+<!--EOF-->

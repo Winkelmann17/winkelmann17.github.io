@@ -199,6 +199,13 @@ h2
     margin: -10px 0 24px;
 }
 
+.right-image 
+{
+    float: right;
+    width: auto;
+    height: auto;
+    margin: 0 0 10px 15px;
+}
 /*
 =================================================================
         LINK CARDS - (NOT LINK MONSTERS)
