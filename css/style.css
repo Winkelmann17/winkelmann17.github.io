@@ -21,14 +21,6 @@
     box-sizing: border-box;
 }
 
-h1 
-{
-    margin: 4px 0 0;
-    font-size: clamp(30px, 5vw, 48px);
-    line-height: 1.15;
-    letter-spacing: -1.5px;
-}
-
 body 
 {
     margin: 0;
@@ -72,6 +64,19 @@ a
     align-items: center;
     gap: 26px;
     margin-bottom: 28px;
+}
+
+h1 
+{
+    margin: 4px 0 0;
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+h2
+{
+    margin: 0 0 0;
 }
 
 .logo 
