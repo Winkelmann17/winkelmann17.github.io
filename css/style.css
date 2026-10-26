@@ -1,6 +1,6 @@
 /*
 =================================================================
-        GENERIC STUFF
+        GENERIC STYLE DEFINITIONS
 =================================================================
 */
 :root 
@@ -21,10 +21,19 @@
     box-sizing: border-box;
 }
 
+h1 
+{
+    margin: 4px 0 0;
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
 body 
 {
     margin: 0;
-    min-height: 100vh;
+
+    /*Attempt at super cool styling*/
     background:
         radial-gradient(
             ellipse at 15% 0%,
@@ -36,19 +45,21 @@ body
     font-family: "Segoe UI", Arial, sans-serif;
     line-height: 1.6;
 }
- /*All*/
+
 a 
 {
     color: inherit;
     text-decoration: none;
 }
 
+/*Wrapper Object*/
 .container 
 {
     width: min(100% - 40px, 1000px);
     margin: 0 auto;
     padding: 48px 0 60px;
 }
+
 
 /*
 =================================================================
@@ -67,18 +78,12 @@ a
 {
     width: 300px;
     height: 300px;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
     border-radius: 50%;
     border: 2px solid var(--accent);
     background: linear-gradient(
         145deg, #272443, #151925
     );
     box-shadow: 0 0 35px rgba(139, 124, 255, 0.16);
-    font-size: 34px;
-    font-weight: 800;
-    letter-spacing: -2px;
     overflow: hidden;
 }
 
@@ -86,9 +91,7 @@ a
 {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     object-position: center;
-    display: block;
 }
 
 .identity 
@@ -105,23 +108,19 @@ a
     text-transform: uppercase;
 }
 
-h1 
-{
-    margin: 4px 0 0;
-    font-size: clamp(30px, 5vw, 48px);
-    line-height: 1.15;
-    letter-spacing: -1.5px;
-}
-
 .subtitle 
 {
     color: var(--muted);
     margin: 8px 0 0;
 }
 
-        /* SMALL LINKS */
 
-.quick-links 
+/*
+=================================================================
+        NAVIGATION LINKS
+=================================================================
+*/
+.navlinks 
 {
     display: flex;
     flex-wrap: wrap;
@@ -129,7 +128,7 @@ h1
     margin-bottom: 38px;
 }
 
-.quick-link 
+.navlink 
 {
     flex: 1;
     min-width: 110px;
@@ -143,7 +142,8 @@ h1
     transition: 0.2s ease;
 }
 
-.quick-link:hover 
+/*Hover functionality*/
+.navlink:hover 
 {
     background: var(--surface-hover);
     border-color: var(--accent);
@@ -151,8 +151,11 @@ h1
     transform: translateY(-3px);
 }
 
-        /* SECTION DIVIDERS */
-
+/*
+=================================================================
+        SECTION STYLES
+=================================================================
+*/
 .section 
 {
     margin-top: 34px;
@@ -191,16 +194,19 @@ h1
     margin: -10px 0 24px;
 }
 
-        /* LARGE LINK CARDS */
-
-.card-grid 
+/*
+=================================================================
+        LINK CARDS - (NOT LINK MONSTERS)
+=================================================================
+*/
+.linkcard-container
 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
 }
 
-.card 
+.linkcard 
 {
     position: relative;
     overflow: hidden;
@@ -219,48 +225,37 @@ h1
         background 0.2s ease;
 }
 
-.card::after 
+.linkcard::after 
 {
-    content: "";
     position: absolute;
     width: 130px;
     height: 130px;
     right: -45px;
     top: -45px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.08;
-    filter: blur(30px);
     pointer-events: none;
 }
 
-.card:hover 
+.linkcard:hover 
 {
     transform: translateY(-5px);
     border-color: var(--accent);
     background: var(--surface-hover);
 }
 
-.card-icon 
-{
-    font-size: 27px;
-    margin-bottom: 12px;
-}
-
-.card h3 
+.linkcard h3 
 {
     margin: 0 0 6px;
     font-size: 21px;
 }
 
-.card p 
+.linkcard p 
 {
     color: var(--muted);
     margin: 0 0 18px;
     font-size: 14px;
 }
 
-.card-arrow 
+.linkcard-visitmsg 
 {
     margin-top: auto;
     color: var(--accent-secondary);
@@ -268,8 +263,12 @@ h1
     font-weight: 700;
 }
 
-        /* FOOTER */
 
+/*
+=================================================================
+        FOOTER
+=================================================================
+*/
 footer 
 {
     margin-top: 55px;
@@ -280,8 +279,11 @@ footer
     text-align: center;
 }
 
-        /* MOBILE */
-
+/*
+=================================================================
+        SCREEN REDUCTION HANDLING
+=================================================================
+*/
 @media (max-width: 600px) 
 {
     .container 
@@ -301,20 +303,22 @@ footer
         font-size: 26px;
     }
 
-    .quick-links {
+    .navlinks {
         gap: 8px;
     }
 
-    .quick-link {
+    .navlink {
         min-width: 0;
         padding: 10px 8px;
     }
 
-    .card-grid {
+    .linkcard-container {
         grid-template-columns: 1fr;
     }
 
-    .card {
+    .linkcard {
         min-height: 180px;
     }
 }
+
+/*EOF*/
