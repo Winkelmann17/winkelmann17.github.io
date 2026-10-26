@@ -206,6 +206,40 @@ h2
     height: auto;
     margin: 0 0 10px 15px;
 }
+
+
+/*
+=================================================================
+        ARTICLE AND PROJECT CARDS - (NOT LINK MONSTERS)
+=================================================================
+*/
+.articlecard-container
+{
+    display: grid;
+    gap: 18px;
+}
+
+.articlecard
+{
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2;
+    flex-direction: row;
+    min-height: 80px;
+    padding: 25px;
+    background: linear-gradient(
+        145deg, #191f30, #11151f
+    );
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
 /*
 =================================================================
         LINK CARDS - (NOT LINK MONSTERS)
