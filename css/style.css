@@ -52,6 +52,16 @@ a
     padding: 48px 0 60px;
 }
 
+hr
+{
+    margin-top : 48px;
+    margin-bottom: 48px;
+    height: 3px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--accent-secondary);
+}
+
 
 /*
 =================================================================
