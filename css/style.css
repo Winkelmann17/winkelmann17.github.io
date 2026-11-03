@@ -234,6 +234,7 @@ h2
 {
     display: grid;
     gap: 18px;
+    padding: 0 0 8px 0;
 }
 
 .articlecard
