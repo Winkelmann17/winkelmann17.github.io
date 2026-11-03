@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkelware | WinkelBudget-Python 1.0.0</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!-- PAGE BODY -->
+<body>
+    <main class="container">
+
+        <!-- Making the logo smaller for not home page -->
+        <style>
+            .logo
+            {
+                width: 150px;
+                height: 150px;
+            }
+        </style>
+
+        <!-- HEADER + NAV LINKS -->
+        <header class="header">
+            <a href="index.html" class="logo" aria-label="Home">
+                <img src="../rsrc/pfp.jpg">
+            </a>
+
+            <div class="identity">
+                <div class="eyebrow">The Reclamation... has already begun.</div>
+                <h1>WinkelBudget-Python 1.0.0 Release</h1>
+                <p class="subtitle">
+                    Winkelware - Published on November 2, 2026
+                </p>
+            </div>
+        </header>
+
+        <nav class="navlinks" aria-label="navlinks">
+            <a class="navlink" href="..">Home</a>
+            <a class="navlink" href="../Articles/index.html">Articles</a>
+            <a class="navlink" href="../Projects/index.html">Projects</a>
+            <a class="navlink"
+               href="https://github.com/Winkelmann17"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub ↗
+            </a>
+        </nav>
+        
+        <!-- PAGE CONTENT -->
+        <section class="section">
+            <div class="section-heading">
+                <h2>Overview</h2>
+            </div>
+            <div>
+                <p>
+                    The 1.0 release can be downloaded <a href="https://github.com/Winkelmann17/BudgetTool-Python/releases/tag/v1.0.0"><u>here.</u></a>
+                    <br></br>
+                    The project repo can be found <a href="https://github.com/Winkelmann17/BudgetTool-Python"><u>here.</u></a>
+                </p>
+                <p>
+                    We've all seen those clips of Dave Ramsey absolutely roasting people because of their credit card debt.
+                    As funny as those clips can be, I actually used to be extremely familiar with Dave Ramsey's idea.
+                    I had to read <i>Total Money Makeover</i> for an Engineering Economics class in my Undergrad, which, at the bare minimum, convinced me to budget.
+                </p>
+                <p>
+                    There are tons of budget apps available, but I hate them all. They either cost money, not efficient at showcasing relevant data, have too many advertisements, or they are just terrible.
+                    Even Dave Ramsey's own app annoyed me beyond measure.
+                    With this in mind, to track my expenses I used an Excel spreadsheet to avoid these apps.
+                    However, I am terrible with Excel and eventually I ended up just breaking the Excel spreadsheet and was unable to recover.
+                    Due to this mistep I decided to code my own budget app that would be fluid, keep records of monthly budgets, and be fluid and (somewhat) easy to use via a GUI.
+                    This is where the idea of WinkelBudget came to fruition.
+                </p>
+                <p>
+                    I chose to implement a GUI since I have very little experience in coding applications with one. 
+                    So while this application has a legitimate usecase for me, it was also a learning experience to get used to building an application with a GUI.
+                    In the following sections I will detail the features, technical details and choices, lessons learned, and the future plans for the application.
+                </p>
+            </div>
+            
+            <div class="section-heading">
+                <h2>Features</h2>
+            </div>
+            <div>
+                <p>
+                    At base level, this is essentially just a spreadsheet (LOL) coded in Python utilizng GUI elements via QT.
+                    QT elements were implemented via the PyQT6 library.
+                    <figure class="right-image">
+                        <img src="../rsrc/QtDesigner.png" width="500" height="300">
+                    <figcaption>Designing the UI in QT Designer</figcaption>
+                    </figure>
+                    The reason QT was chosen was because of its related appliaction called QT Designer. 
+                    Through this application, I was able to more effectively create the UI elements that I wanted, and visualize them as I was creating them.
+                    This sped up the UI creation/development process, although there was still a learning curve to understanding how these UI's are structured and called on.
+                    Through these UI elements, the user is able to view a spreadsheet pertaining to their income and expenses, see graphs and visualizations of that data, write notes regarding the monthly budget, and interact with the structures storing this data more easily.
+                </p>
+                <p>
+                    Specifically though, the following features are present in the 1.0.0 release of this applicaiton:
+                    <ul>
+                        <li>An easy to use, color-supported table separated into categories for monthly expenses</li>
+                        <ul>
+                            <li>Ability to enter planned expenses and the actual values spent</li>
+                            <li>Functionality to auto calculate the differnce between planned and actual expense values</li>
+                            <li>Ability to add and remove different categories</li>
+                            <li>Ability to expense totals by category</li>
+                            <li>Color coding base on monetary values for quick understanding</li>
+                        </ul>
+                        <li>Tab widget providing quick access to relevant metrics and data</li>
+                        <ul>
+                            <li>Overall budget statistics: Total income, Total spending, Total difference</li>
+                            <li>List of expenses for a given category, shows amount spent, a description, and the date it occurred</li>
+                            <li>Spending Bar Graph</li>
+                            <li>Spending Pie Chart</li>
+                        </ul>
+                        <li>Interactive popups for editing categories and adding expense values</li>
+                        <li>Functionality to store notes regarding the month</li>
+                        <li>Multi-widget view showing key data</li>
+                        <li>Coded in Python via accessible and cross-platform libraries to run on any operating system that supports Python3</li>
+                    </ul>
+                </p>
+            </div>
+            
+            <div class="section-heading">
+                <h2>Technical Details</h2>
+            </div>
+            <div>
+                <p>
+                    As stated before, this is my first "large-scale" (airquotes on that heavily) GUI project.
+                    QT was used over other Python options due to it's powerful designer tool which I showed earlier, but also because it is present in other programming languages, notably C++.
+                    Qt makes it easy to load any designed UI using its <i>loadui</i> function.
+                    Through this function it is possible to load multiple UI files and cateogrize them within their own Class (a class per screen essentially).
+                    The main budget screen was implemented into its own class and so were both popup menus.
+                    Separating them into their own classes greatly increased development efficiency due to the ease of organization and modularity.
+                    Simply calling an instance of a screen class made all the screens very simple to call in relation to button presses or events.
+                    Interestingly enough, the main <i>BudgetScreen.ui</i> file is actually just widget that can be displayed over the MainWindow screen for the entire program. 
+                    This gave me the ability to use the status bar functionality that is unique to QT MainWindows despite the variety of different screens that might be displayed.
+                    Another reason this form was implemented was because it is extensible in the future. 
+                    When I eventually add an entirely GUI-focused launch screen (removing the cmd line month/year specification), the program will simply shuffle these stacked widgets while keeping the same MainWindow that "runs" the program.
+                    Once again, this design philosphy keeps the screens largely modular and independent of each other, allowing for easy deployment, but also more segmented code-bases which sped development up.
+                </p>
+                <p>
+                    As for tracking the data and calculating it, I developed 4 more objects to complete that functionality. 
+                    I first created the <i>Month</i> object which essentially is the main container for all important data within the budget calculations. 
+                    Since the budget app is split up according to months, this was the simplest container to use and the most straight forward. 
+                    From here, I made 3 other "sub objects" that are all nested under the Month object. 
+                    The <i>Category</i> object exists to carry stats and totals for each larger, umbrella category (Savings, Transporation, Food, etc) and allow for easy math operations on just one category.
+                    The next layer, the <i>Expense</i> object exists to carry individual expense types under an category.
+                    The Transportation category holds both expenses for Gas as well as Vehicle Maintenance.
+                    You could also add Tolls Bus/Subway passes, etc if necessary (completely up to the user!).
+                    They are generally laid out the same as the <i>Category</i> objects, lots of their internal methods are to do easy math according to only that expense type (which makes subsequent math easier).
+                    <figure class="left-image">
+                        <img src="../rsrc/WinkelBudgetPyDiagram.png" width="400" height="300">
+                    <figcaption>Backend object diagram for WinkelBudget</figcaption>
+                    </figure>
+                    The final object was the rudimentary <i>Cost</i> object. This honestly could've been implemented via a dictionary and tuples (tbh this might be worse), but I felt like keeping the object train going.
+                    This object is nested under the <i>Expense</i> object and holds the name, date, and cost of an indiviudal instance of an expense.
+                    For example, under the Groceries expense type (which is under the Food category), you might go to Walmart, Target, and Aldi, each on separate days — completely separate trips, with different amounts spent.
+                    Each of these trips will be entered as an expense via the <i>ExpensePopUp.ui</i> front end.
+                    These <i>Cost</i> objects are then nested under the <i>Exepnse</i> object. 
+                    Now... how does these all come together?
+                    Please see my terrible diagram to the left that better explains the nesting and why I structured it this way. 
+                    Essentially, the <i>Expense</i> object sums its total by summing its <i>Costs</i>, which leads to the <i>Category</i> summing its total by summing its <i>Expenses</i>.
+                    Finally, this ends with the <i>Month</i> summing its totals via the sum of all its <i>Categories</i>.
+                    It is 10000000% possible that there is a better way to organize this data on the backend. 
+                    Did I think of it? No, so this is what we got.
+                    I hope you enjoyed my amazing diagram — shoutout to MS Paint.
+                </p>
+                <p>
+                    Final section I'll talk about (because honestly the longer this is going on, the more I am losing myself) is the persistence/data storage method.
+                    I opted for files on disk! (applause)
+                    In my original code, before I completely burned everything down and started over about 6 months ago, I had a <i>Year</i> object as the final stage of the chain talked about in the above paragraph.
+                    This was extremely annoying to work with and lead to very complicated referencing, and it was just terrible. 
+                    After my hiatus from this project I became enlightened to <i>Keep It Simple Stupid</i>. 
+                    I decided to just store everything in folders.
+                    I created the data folder which is not visible in the repo.
+                    It is created on disk when the program is run and a month is saved.
+                    The data folder is hierarchical by year and a backups folder. 
+                    Each year folder contains a .dat file that stores the Pickled <i>Month</i> object (which, if you recall, holds all other objects in it).
+                    When the program is loaded, the application checks for the existence of the specified .dat file accoridng to the command line, if it does not exist, a blank <i>Month</i> object is used instead.
+                    This blank object is then serialized via Python's Pickle module onto disk in the appropriate structure.
+                    To accomplish this I create a Serializer class that holds methods for saving the data to disk. 
+                    When the BudgetScreen is reached, a new instance of the Serializer class is created to save the data to the appropriate file and move backups accordingly.
+                    Finally, when the user decides the click the Save button, the serializer will Pickle the <i>Month</i> object and save it to disk — where it can be loaded from on next program startup.
+                </p>
+                <p>
+                    With that, I am pretty confident I covered everything important. There are some other quirks, but that will all be explained in some more in-depth documentation (if I ever release it).
+                    For now, if you have any other questions, read the source code and use the application.
+                    I feel it is rather straight forward to use and understand. 
+                </p>
+            </div>
+            
+            <div class="section-heading">
+                <h2>The Future</h2>
+            </div>
+            <div>
+                <p>
+                    I do plan to update and improve this application, though I do not have a specific release cadence.
+                    I really wanted to release it so that I could stop giving myself the excuse that "it isn't done, you don't need to track everything so rigorously just yet."
+                    It is released now, so I have to use it. 
+                    I plan on taking my own user feedback and structure my first feature update sometime in 2027 probably. 
+                    If there are any crazy bugs I will attempt to patch those when I am aware of them and release hotfixes accordingly.
+                    If you find any bugs or crashes please create a Github issue.
+                </p>
+                <p>
+                    Now, here are some planned features that I want to implement in the future:
+                    <ul>
+                        <li>Themes (muh darkmode)</li>
+                        <li>Generic UI improvements</li>
+                        <li>Charts and Graphs over a selected timeframe</li>
+                        <li>Removal of cmd line launch, GUI launch page (The coverscreen is already in the Repo)</li>
+                        <li>Communication with some kind of external webserver to pull expense updates</li>
+                        <li>Tracking saved money somehow</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- HORZ RULE -->
+        <hr></hr>
+
+        <!-- LINK CARDS AT BOTTOM -->
+        <section class="section">
+            <div class="section-heading">
+                <h2>Newest Content and Creator Highlights</h2>
+            </div>
+
+            <div class="linkcard-container">
+                <!--♠♣♥♦-->
+                <a class="linkcard" href="../Projects/SVDAdaptiveQim.html">
+                    <h3>★ SVDAdaptiveQim Stego Project</h3>
+                    <p>
+                        A Python implementation and analysis of a steganography algorithm for JPEG images.
+                    </p>
+                    <span class="linkcard-visitmsg">
+                        View project →
+                    </span>
+                </a>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>Published by Winkelmann17 via Github Pages · 2026</p>
+        </footer>
+
+    </main>
+</body>
+</html>
+
+<!--EOF-->
